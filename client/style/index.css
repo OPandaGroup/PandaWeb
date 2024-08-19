@@ -1,0 +1,165 @@
+.menu {
+    display: flex;
+    background-color: #ffffff;
+    position: absolute;
+
+    width: 100%;
+    height: 50px;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    /* border-radius: 15px; */
+}
+
+.active{
+    position:absolute;
+    top: 30%;
+    /* outline-color: black;
+    outline-style: solid; */
+    outline-width: 2px;
+    text-decoration: none;
+}
+
+.active:hover{
+    text-decoration: underline black;
+    text-decoration-thickness: 2px;
+}
+
+.active:link{
+    color: #262626;
+}
+
+body{
+    height: 1000px;
+}
+
+.active:visited{
+    color: #262626;
+}
+
+#index{
+    left: 15%;
+}
+
+#about{
+    left: 25%;
+}
+
+#news{
+    left: 35%;
+}
+
+#product{
+    left: 45%;
+}
+
+#contact{
+    left: 55%;
+}
+
+.logo{
+    width: 50px;
+    height: 50px;
+    position:absolute;
+    left: 5%;
+}
+
+.user{
+    position:absolute;
+    top: 25%;
+    background-color: #ffffff;
+    border: none;
+}
+
+#login{
+    right: 8%;
+}
+
+#register{
+    right: 5%;
+}
+
+.user:hover{
+    border-bottom: 2px solid rgb(28, 128, 241);
+}
+
+#picture .pictures{
+    position:absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 51px;
+    width: 100%;
+    height: 594px;
+    background-color: #ffffff;
+    border: none;
+    z-index: 0;
+}
+
+#picture1{
+    width: 100%;
+    left: 0px;
+    animation: picture1 2s infinite;
+    animation-delay: 1s;
+}
+
+#picture2{
+    width: 100%;
+    left: -50px;
+    animation: picture2 2s infinite;
+}
+
+@keyframes picture2 {
+    0% {
+        transform: translateX(-500px);
+    }50% {
+        transform: translateX(0px);
+    }100% {
+        transform: translateX(-50px);
+    }
+}
+
+@keyframes picture1 {
+    0% {
+        transform: translateX(0px);
+    }50% {
+        transform: translateX(-50px);
+    }100% {
+        transform: translateX(0px);
+    }
+}
+
+#panda_introduce{
+    position: absolute;
+    top: 650px;
+}
+
+#basic{
+    position: relative;
+    left: 15%;
+}
+
+#back {
+      /* 固定定位 */
+      position: fixed;
+      bottom: 250px;
+      right: 0;
+      margin-right: 20px;
+      z-index: 999;
+      /* 回到顶部样式 */
+      width: 35px;
+      height: 35px;
+      background-color: deepskyblue;
+      /* 字体在元素中水平垂直居中 */
+      line-height: 35px;
+      text-align: center;
+      font-size: 14px;
+      color: white;
+      /* 设置圆角 */
+      border-radius: 50%;
+      /* 设置过渡效果 */
+      transition: all linear 0.5s;
+      cursor: pointer;
+      /* 隐藏 透明度为0 */
+      opacity: 0;
+}
