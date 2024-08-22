@@ -27,15 +27,37 @@
     var Projects = Array() ;
     Projects.push(new WindowModule({
       title : "PandaRuntimeLibrary",
-      width : "500px",
-      height : "300px",
+      width : "300px",
+      height : "200px",
       x : "100px",
       y : "100px",
       content : "Panda的运行库, 用于攀达部分项目运行,目前是以x86_64作为主要适配平台后续将适配更多平台",
     }))
-    // Projects[0].main_Window.setAttribute("display", "none");
-    // Projects[0].setTitleStyle("background-color:black");
-    
+    Projects.push(new WindowModule({
+      title : "Pmsiles",
+      width : "300px",
+      height : "200px",
+      x : "700px",
+      y : "100px",
+      content : "Panda的网页组件库, 在开发Panda官网时使用",
+    }))
+    Projects.push(new WindowModule({
+      title : "Panda",
+      width : "300px",
+      height : "200px",
+      x : "100px",
+      y : "500px",
+      content : "Panda的官网, 用于展示Panda的组件库和运行库",
+    }))
+    Projects[0].setWindowStyle({
+      "background-image" : "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)",
+    })
+    Projects[1].setWindowStyle({
+      "background-image" : "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)",
+    })
+    Projects[2].setWindowStyle({
+      "background-image" : "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)"
+    })
   </script>
   <div>
     <a href="https://haowallpaper.com/">https://haowallpaper.com/</a>

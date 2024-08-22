@@ -1,3 +1,7 @@
+document.write("<link rel='stylesheet' href='../Style/shadow.css'>");
+document.write("<script src='../Script/style.js'></script>");
+//imp
+
 class WindowModule{
     constructor(opts){
         this.x = opts.x;
@@ -7,14 +11,21 @@ class WindowModule{
         this.title = opts.title;
         this.closeButton = opts.closeButton;
         this.content = opts.content;
-        document.write("<link rel='stylesheet' href='../Style/shadow.css'>");
-        document.write("<script src='../Script/style.js'></script>")
-        this.display();
+        
+        if(opts.parent == undefined){
+            var parent = document.body;
+        }else{
+            var parent = opts.parent;
+        }
+        this.display(parent);
+        this.setContentStyle(opts.contentStyle);
+        this.setWindowStyle(opts.windowStyle);
+        this.setTitleStyle(opts.titleStyle);
     }
 
-    display(){
+    display(parent){
         const mainWindow = document.createElement("div");
-        document.body.appendChild(mainWindow);
+        parent.appendChild(mainWindow);
         mainWindow.style.position = "absolute";
         mainWindow.style.top = this.y;
         mainWindow.style.left = this.x;
@@ -71,5 +82,9 @@ class WindowModule{
         for(let key in Style){
             this.main_Window.style[key] = Style[key];
         }
+    }
+
+    Refresh(parent){
+        this.display(parent);
     }
 }
