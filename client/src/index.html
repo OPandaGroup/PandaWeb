@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>主页 | 中国攀达科技小组</title>
     <link rel="stylesheet" href="./style/index.css">
-    <link rel="stylesheet" href="./style/window.css">
+    <!-- <link rel="stylesheet" href="./style/window.css"> -->
     <link rel="stylesheet" href="../mod/pmsiles/Style/main.css">
     <script src="./JavaScript/home.js"></script>
     <script src="../mod/pmsiles/Script/window.js"></script>
+    <script src="../mod/pmsiles/Script/websocket.js"></script>
 </head>
 <body>
   <div id="back">Top</div>
   
   <div class="menu">
     <a href="./index.html"><img src="../img/Panda.png" alt="logo" class="logo"></a>
-    <div><a href="./html/about.html" target="_blank" class="active" id="index">首页</a> </div>
+    <div><a href="./index.html" class="active" id="index">首页</a> </div>
     <div><a href="./html/about.html" target="_blank" class="active" id="about">关于我们</a> </div>
     <div><a href="./html/news.html" target="_blank" class="active" id="news">新闻中心</a> </div>
     <div><a href="./html/product.html" target="_blank" class="active" id="product">项目中心</a> </div>
@@ -23,44 +24,6 @@
     <button class="user" id="login" onclick="login()">登录</button>
     <button class="user" id="register" onclick="register()">注册</button>
   </div>
-  <script>
-    var Projects = Array() ;
-    Projects.push(new WindowModule({
-      title : "PandaRuntimeLibrary",
-      width : "300px",
-      height : "200px",
-      x : "100px",
-      y : "100px",
-      content : "Panda的运行库, 用于攀达部分项目运行,目前是以x86_64作为主要适配平台后续将适配更多平台",
-    }))
-    Projects.push(new WindowModule({
-      title : "Pmsiles",
-      width : "300px",
-      height : "200px",
-      x : "700px",
-      y : "100px",
-      content : "Panda的网页组件库, 在开发Panda官网时使用",
-    }))
-    Projects.push(new WindowModule({
-      title : "Panda",
-      width : "300px",
-      height : "200px",
-      x : "100px",
-      y : "500px",
-      content : "Panda的官网, 用于展示Panda的组件库和运行库",
-    }))
-    Projects[0].setWindowStyle({
-      "background-image" : "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)",
-    })
-    Projects[1].setWindowStyle({
-      "background-image" : "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)",
-    })
-    Projects[2].setWindowStyle({
-      "background-image" : "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)"
-    })
-  </script>
-  <div>
-    <a href="https://haowallpaper.com/">https://haowallpaper.com/</a>
-  </div>
+  <div id="slogon">让科技不再高高在上,而是服务于人民</div>
 </body>
 </html> 
