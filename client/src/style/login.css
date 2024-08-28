@@ -138,5 +138,6 @@ center{
 }
 
 body{
-    background-image: url("../img/background/壁纸-1.jpg");
+    background-image: url("../../img/background/壁纸-1.jpg");
+    background-size: cover;
 }

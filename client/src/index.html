@@ -24,6 +24,28 @@
     <button class="user" id="login" onclick="login()">登录</button>
     <button class="user" id="register" onclick="register()">注册</button>
   </div>
-  <div id="slogon">让科技不再高高在上,而是服务于人民</div>
+  <div id="banner" onclick="console.log('this code from github.com/ChinaPandaGroup/Prtlents/blob/main/src/mods/include/PDataStructure.h')">
+    <div id="slogon" style="z-index: 1;">让科技不再高高在上，而是服务于人民！
+      <div id="writer" style="position: absolute;z-index: 800;">
+        <div id="cursor"></div>
+      </div>
+    </div>
+    <script>
+      const writer = document.getElementById('writer');
+      const slogon = document.getElementById('slogon');
+      
+      writer.style.width = slogon.offsetWidth + 'px';
+      writer.style.height = slogon.offsetHeight + 'px';
+      const slogonText = slogon.innerText;
+      const slogonLength = slogonText.length;
+      const animationDuration = 0.25; // 动画持续时间，单位为秒
+      writer.style.animation = "writer " + slogonLength*animationDuration + "s " + "steps(" + slogonLength + ", end) forwards";
+
+    </script>
+  </div>
+  <div id="content">
+    </script>
+  </div>
+  </div>
 </body>
 </html> 

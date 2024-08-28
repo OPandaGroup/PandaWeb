@@ -1,5 +1,77 @@
+/* 这些是通用代码 */
+
+
+#cursor {
+    animation: cursors_ 0.2s infinite;
+}
+
+#banner{
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    height: calc(100% - 50px);
+    top: 50px; 
+    left: 0;
+}
+
+#slogon {
+    position: absolute;
+    width: auto;
+    font-size: 45px;
+    top: 40%;
+    left: 20%;
+}
+
+#writer{
+    position: absolute;
+    width: auto;
+    top: 0;
+    left: 0;
+}
+
+@keyframes writer {
+    to {
+        left: 100%;
+        width: 0;
+    }
+}
+
 @media (prefers-color-scheme: light) {
     /*这是浅色的代码*/
+    
+    @keyframes cursors_ {
+        0%{
+            background-color: #000000;
+        }
+        100%{
+            background-color: #ffffff;
+        }
+    }
+
+    #cursor{
+        position: absolute;
+        background-color: #000000;
+        height: 100%;
+        width: 5px;
+        left: 5px;
+        z-index: 9999;
+        border-radius: 5px;
+    }
+
+    #slogon {
+        color: #000000;
+        background-color: #ffffff;
+    }
+
+    #writer {
+        background-color: #ffffff;
+    }
+    
+    #banner{
+        background: url(../../img/Panda_BG_l.svg) no-repeat;
+        background-size: cover;
+    }
+
     .menu {
         display: flex;
         background-color: #ffffff;
@@ -106,20 +178,50 @@
         position: relative;
         left: 15%;
     }
-    #slogon{
-        position: absolute;
-        top: 45%;
-        font-size: 50px;
-        left: 15%;
-        color: #000000;
-    }
+
+    
 }
 
 @media (prefers-color-scheme: dark) {
+
+    @keyframes cursors_ {
+        0%{
+            background: #ffffff;
+        }
+        100%{
+            background: #1F1F1F;
+        }
+    }
+
+    #cursor{
+        position: absolute;
+        background-color: #ffffff;
+        height: 100%;
+        width: 5px;
+        left: 5px;
+        z-index: 9999;
+        border-radius: 5px;
+    }
+
+    #slogon{
+        color: #ffffff;
+        background: #1F1F1F;
+    }
+
+    #writer{
+        background: #1F1F1F;
+    }
+    
     :root{
         background-color: #1F1F1F;
         --text-color: #ffffff;
     }
+
+    #banner{
+        background: url(../../img/Panda_BG.svg) no-repeat;
+        background-size: cover;
+    }
+    
     .menu {
         display: flex;
         background-color: #232327;
@@ -227,13 +329,4 @@
         position: relative;
         left: 15%;
     }
-
-    #slogon{
-        position: absolute;
-        top: 45%;
-        font-size: 50px;
-        left: 15%;
-        color: #ffffff;
-    }
-
 }
