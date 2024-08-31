@@ -1,0 +1,12 @@
+[package]
+name = "panda"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ntex = {version = "2", features = ["tokio"]}
+tokio = {version = "1", features = ["fs"]}
+[profile.release]
+strip = true
+[profile.dev]
+strip = true
