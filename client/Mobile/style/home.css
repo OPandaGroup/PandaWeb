@@ -1,0 +1,96 @@
+li{
+    list-style: none;
+}
+
+#menuButton{
+    border: none;
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    right: 1%;
+    background-size: cover;
+}
+
+#menuBar {
+    position: fixed;
+    height: 100%;
+    width: 75%;
+    right: -100%;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    animation: slideIn 1s forwards;
+}
+
+.active{
+    border: none;
+    position: absolute;
+    width: 100%;
+    height: 8%;
+    left: 0;
+}
+
+#about{
+    top :8%;
+}
+
+#news{
+    top: 16%;
+}
+
+#product{
+    top: 24%;
+}
+
+#contact{
+    top: 32%;
+}
+
+@keyframes slideIn {
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        right: 0;
+    }
+    100%{
+        right: -100%;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root{
+        --background-color: #181818;
+        --text-color: white;
+        background-color: #181818;
+        color: white;
+    }
+
+    #menuBar {
+        background-color: #2D2D2D;
+    }
+    .active{
+        background-color: #2D2D2D;
+        color: white;
+    }
+
+    #menuIcon{
+        position: absolute;
+        height: 10px;
+        width: 100%;
+        left: 0;
+        background-color: #000;
+        top: 0px;
+        &::after{
+            
+            
+            transform: translateX(-10);
+        }
+    }
+}

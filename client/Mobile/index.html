@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/home.css">
+    <script src="../mod/pmsiles/Script/dom.js"></script>
+    <title>中国攀达科技小组</title>
+    <script>
+    if (/Mobi|Android|iPhone/i.test(navigator.userAgent) || /Android|iPhone|iPad|iPod/i.test(navigator.platform)) {
+        console.log("移动端设备");
+      } else {
+        console.log("桌面端设备");
+        window.location.href = "../../src/index.html"
+      }
+    </script>
+</head>
+<body>
+    <div id="overlay" style="background-color: rgba(0, 0, 0, 0.3);position: fixed;top: 0;left: 0; z-index: 999;display: none;width: 100%;height: 100%;"></div>
+    <button id="menuButton" style="z-index: 1000;">
+        <div id="menuIcon"></div>
+    </button>
+    <div id="menuBar">
+        <ul>
+            <li><button target = "_self" class="active" id="index">首页</button></li>
+            <li><button target = "_self" class="active" id="about">关于我们</button></li>
+            <li><button target = "_self" class="active" id="news">新闻中心</button></li>
+            <li><button target = "_self" class="active" id="product">项目中心</button></li>
+            <li><button target = "_self" class="active" id="contact">联系我们</abutton></li>
+        </ul>
+    <script>
+        var times = false;
+        hiddenDOM(document.getElementById('overlay'));
+        const menuButton = findIdDOM("menuButton");
+        const menuBar = findIdDOM("menuBar");
+        const overlay = findIdDOM("overlay");
+        hiddenDOM(menuBar);
+        const transforms = function () {
+            times = !times;
+            if(times){
+                showDOM(overlay);
+                showDOM(menuBar);
+                hiddenDOM(menuButton);
+            }else{
+                hiddenDOM(overlay);
+                hiddenDOM(menuBar);
+                showDOM(menuButton);
+            }
+        }
+
+        menuButton.addEventListener("click", transforms);
+        overlay.addEventListener("click", transforms);
+        addEventListener("resize", function(){
+        //添加这个事件判断主要是在浏览器中如果打开了开发者工具，可以进入手机模拟器模式，所以要跳转到移动端页面
+        if (/Mobi|Android|iPhone/i.test(navigator.userAgent) || /Android|iPhone|iPad|iPod/i.test(navigator.platform)) {
+        console.log("移动端设备");
+        console.log("跳转到移动端页面");
+        window.location.href = "../Mobile/src/index.html";
+        } else {
+          console.log("桌面端设备");
+        }
+      });
+    </script>
+    </script>
+</body>
+</html>

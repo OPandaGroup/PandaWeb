@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | 中国攀达科技小组</title>
+    <link rel="stylesheet" href="/style/index.css">
+    <script>
+        if (/Mobi|Android|iPhone/i.test(navigator.userAgent) || /Android|iPhone|iPad|iPod/i.test(navigator.platform)) {
+            console.log("移动端设备");
+            console.log("跳转到移动端页面");
+            window.location.href = "/Mobile/404.html";
+        } else {
+            console.log("桌面端设备");
+        }
+    </script>
+</head>
+<body>
+    <div class="menu">
+        <a href="./index.html"><img src="/assets/Panda.png" alt="logo" class="logo"></a>
+        <div><a href="./index.html" class="active" id="index">首页</a> </div>
+        <div><a href="./html/about.html" target="_blank" class="active" id="about">关于我们</a> </div>
+        <div><a href="./html/news.html" target="_blank" class="active" id="news">新闻中心</a> </div>
+        <div><a href="./html/product.html" target="_blank" class="active" id="product">项目中心</a> </div>
+        <div><a href="./html/contact.html" target="_blank" class="active" id="contact">联系我们</a> </div>
+        <button class="user" id="login" onclick="login()">登录</button>
+        <button class="user" id="register" onclick="register()">注册</button>
+      </div>
+    <div class="container">
+        <div class="content">
+            <h1>404</h1>
+            <p>页面未找到</p>
+            <a href="./index.html">返回首页</a>
+        </div>
+    </div>
+</body>
+</html>
