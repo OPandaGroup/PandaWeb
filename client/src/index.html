@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="zh-cn" >
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      if (/Mobi|Android|iPhone/i.test(navigator.userAgent) || /Android|iPhone|iPad|iPod/i.test(navigator.platform)) {
+        console.log("移动端设备");
+        console.log("跳转到移动端页面");
+        window.location.href = "../Mobile/src/index.html";
+      } else {
+        console.log("桌面端设备");
+      }
+    </script>
     <title>主页 | 中国攀达科技小组</title>
     <link rel="stylesheet" href="./style/index.css">
-    <!-- <link rel="stylesheet" href="./style/window.css"> -->
     <link rel="stylesheet" href="../mod/pmsiles/Style/main.css">
     <script src="./JavaScript/home.js"></script>
     <script src="../mod/pmsiles/Script/window.js"></script>
     <script src="../mod/pmsiles/Script/websocket.js"></script>
+    
 </head>
 <body>
   <div id="back">Top</div>
-  
   <div class="menu">
     <a href="./index.html"><img src="../img/Panda.png" alt="logo" class="logo"></a>
     <div><a href="./index.html" class="active" id="index">首页</a> </div>
@@ -25,26 +33,38 @@
     <button class="user" id="register" onclick="register()">注册</button>
   </div>
   <div id="banner" onclick="console.log('this code from github.com/ChinaPandaGroup/Prtlents/blob/main/src/mods/include/PDataStructure.h')">
-    <div id="slogon" style="z-index: 1;">让科技不再高高在上，而是服务于人民！
+    <div id="slogon" style="z-index: 1;">
+      让科技不再高高在上，而是服务于人民！
       <div id="writer" style="position: absolute;z-index: 800;">
         <div id="cursor"></div>
       </div>
     </div>
     <script>
+      window.onchange = function() {
+        console.log("change");
+      }
       const writer = document.getElementById('writer');
       const slogon = document.getElementById('slogon');
-      
       writer.style.width = slogon.offsetWidth + 'px';
       writer.style.height = slogon.offsetHeight + 'px';
       const slogonText = slogon.innerText;
       const slogonLength = slogonText.length;
       const animationDuration = 0.25; // 动画持续时间，单位为秒
-      writer.style.animation = "writer " + slogonLength*animationDuration + "s " + "steps(" + slogonLength + ", end) forwards";
-
+      writer.style.animation = "writer " + slogonLength * animationDuration + "s " + "steps(" + slogonLength + ", end) forwards";
+      addEventListener("resize", function(){
+        console.log("hhh");
+        //添加这个事件判断主要是在浏览器中如果打开了开发者工具，可以进入手机模拟器模式，所以要跳转到移动端页面
+        if (/Mobi|Android|iPhone/i.test(navigator.userAgent) || /Android|iPhone|iPad|iPod/i.test(navigator.platform)) {
+        console.log("移动端设备");
+        console.log("跳转到移动端页面");
+        window.location.href = "../Mobile/src/index.html";
+        } else {
+          console.log("桌面端设备");
+        }
+      });
     </script>
   </div>
   <div id="content">
-    </script>
   </div>
   </div>
 </body>

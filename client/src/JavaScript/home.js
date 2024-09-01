@@ -19,7 +19,7 @@ function browserInfo(){
 }
 
 if(browserInfo() == "Safari"){
-    alert("我们建议您使用Chrome浏览器访问本网站,因为本网站中所有的Css都是基于Firefox编写的,在Safari中可能会出现一些问题,给您带来不便,我们深感抱歉")
+    alert("我们建议您使用Chrome浏览器/Firefox浏览器访问本网站,因为本网站中所有的CSS都是基于Firefox编写的,在Safari中可能会出现一些问题,给您带来不便,我们深感抱歉")
 }
 
 function login(){

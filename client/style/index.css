@@ -1,5 +1,8 @@
 /* 这些是通用代码 */
 
+:root{
+    font-family:"Microsoft YaHei",微软雅黑;
+}
 
 #cursor {
     animation: cursors_ 0.2s infinite;
@@ -214,7 +217,7 @@
     
     :root{
         background-color: #1F1F1F;
-        --text-color: #ffffff;
+        --text-color: #000;
     }
 
     #banner{
