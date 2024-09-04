@@ -1,4 +1,4 @@
 use ntex::http;
 use ntex::web;
-#[web::get]
+#[web::get()]
 async fn get_user() -> http::Response {}
