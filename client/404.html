@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/index.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="./style/menu.css" type="text/css" media="all" />
     <title>404 | 中国攀达科技小组</title>
 </head>
 <body>
-    <h1 style="position: absolute; top:50px; text-align:center; ">404</h1>
+    <h1 style="margin: 0;position: absolute;top: 100px;left: 50%;transform: translate(-50%, -50%); ">404</h1>
+    <h2 style="margin: 0;position: absolute;top: 130px;left: 50%;transform: translateX(-50%);">抱歉，您访问的页面不存在。</h2>
+    <button style="margin: 0;position: absolute;top: 200px;left: 50%;transform: translateX(-50%); border: 0; background-image: linear-gradient(to right, #ff6e7f, #bfe9ff);" onclick="window.location.href='./index.html'">返回首页</button>
     <div class="menu">
         <a href="./index.html"><img src="/assets/Panda.png" alt="logo" class="logo"></a>
         <div><a href="./index.html" class="active" id="index">首页</a> </div>
@@ -17,6 +20,6 @@
         <div><a href="./html/contact.html" target="_blank" class="active" id="contact">联系我们</a> </div>
         <button class="user" id="login" onclick="login()">登录</button>
         <button class="user" id="register" onclick="register()">注册</button>
-  </div>
+    </div>
 </body>
 </html>

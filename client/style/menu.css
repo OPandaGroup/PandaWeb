@@ -1,0 +1,152 @@
+#login{
+    right: 8%;
+}
+
+#register{
+    right: 5%;
+}
+
+:root{
+    font-family:"Microsoft YaHei",微软雅黑;
+}
+
+@media (prefers-color-scheme: light) {
+    :root{
+        color: #000000;
+    }
+
+    .menu {
+        display: flex;
+        background-color: #ffffff;
+        position: absolute;
+    
+        width: 100%;
+        height: 50px;
+        left: 0;
+        top: 0;
+        z-index: 1;
+    }
+    .active{
+        position:absolute;
+        top: 30%;
+        /* outline-color: black;
+        outline-style: solid; */
+        outline-width: 2px;
+        text-decoration: none;
+    }
+    
+    .active:hover{
+        text-decoration: underline black;
+        text-decoration-thickness: 2px;
+    }
+    
+    .active:link{
+        color: #262626;
+    }
+    
+    .active:visited{
+        color: #262626;
+    }
+    
+    #index{
+        left: 15%;
+    }
+    
+    #about{
+        left: 25%;
+    }
+    
+    #news{
+        left: 35%;
+    }
+    
+    #product{
+        left: 45%;
+    }
+    
+    #contact{
+        left: 55%;
+    }
+
+    .user{
+        position:absolute;
+        top: 25%;
+        background-color: #ffffff;
+        border: none;
+    }
+
+    .user:hover{
+        border-bottom: 2px solid rgb(28, 128, 241);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root{
+        color: #ffffff;
+    }
+
+    .menu {
+        display: flex;
+        background-color: #232327;
+        position: absolute;
+    
+        width: 100%;
+        height: 50px;
+        left: 0;
+        top: 0;
+        z-index: 1;
+    }
+
+    .active{
+        position:absolute;
+        top: 30%;
+        /* outline-color: black;
+        outline-style: solid; */
+        outline-width: 2px;
+        text-decoration: none;
+    }
+    
+    .active{
+        color: #ffffff;
+    }
+
+    .active:hover{
+        text-decoration: underline rgb(28, 128, 241);
+        text-decoration-thickness: 2px;
+    }
+    
+    .active:link .active:visited{
+        color: #262626;
+    }
+    
+    #index{
+        left: 15%;
+    }
+    
+    #about{
+        left: 25%;
+    }
+    
+    #news{
+        left: 35%;
+    }
+    
+    #product{
+        left: 45%;
+    }
+    
+    #contact{
+        left: 55%;
+    }
+    .user{
+        color: #ffffff;
+        position:absolute;
+        top: 25%;
+        background-color: #232327;
+        border: none;
+    }
+    
+    .user:hover{
+        border-bottom: 2px solid rgb(28, 128, 241);
+    }
+}

@@ -1,8 +1,6 @@
 /* 这些是通用代码 */
 
-:root{
-    font-family:"Microsoft YaHei",微软雅黑;
-}
+
 
 #cursor {
     animation: cursors_ 0.2s infinite;
@@ -42,6 +40,10 @@
 @media (prefers-color-scheme: light) {
     /*这是浅色的代码*/
     
+    :root{
+        color: black;
+    }
+
     @keyframes cursors_ {
         0%{
             background-color: #000000;
@@ -56,7 +58,7 @@
         background-color: #000000;
         height: 100%;
         width: 5px;
-        left: 5px;
+        left: 0;
         z-index: 9999;
         border-radius: 5px;
     }
@@ -74,89 +76,12 @@
         background: url(../assets/Panda_BG_l.svg) no-repeat;
         background-size: cover;
     }
-
-    .menu {
-        display: flex;
-        background-color: #ffffff;
-        position: absolute;
-    
-        width: 100%;
-        height: 50px;
-        left: 0;
-        top: 0;
-        z-index: 1;
-    }
-    
-    .active{
-        position:absolute;
-        top: 30%;
-        /* outline-color: black;
-        outline-style: solid; */
-        outline-width: 2px;
-        text-decoration: none;
-    }
-    
-    .active:hover{
-        text-decoration: underline black;
-        text-decoration-thickness: 2px;
-    }
-    
-    .active:link{
-        color: #262626;
-    }
-    
-    body{
-        height: 1000px;
-    }
-    
-    .active:visited{
-        color: #262626;
-    }
-    
-    #index{
-        left: 15%;
-    }
-    
-    #about{
-        left: 25%;
-    }
-    
-    #news{
-        left: 35%;
-    }
-    
-    #product{
-        left: 45%;
-    }
-    
-    #contact{
-        left: 55%;
-    }
     
     .logo{
         width: 50px;
         height: 50px;
         position:absolute;
         left: 5%;
-    }
-    
-    .user{
-        position:absolute;
-        top: 25%;
-        background-color: #ffffff;
-        border: none;
-    }
-    
-    #login{
-        right: 8%;
-    }
-    
-    #register{
-        right: 5%;
-    }
-    
-    .user:hover{
-        border-bottom: 2px solid rgb(28, 128, 241);
     }
     
     #picture .pictures{
@@ -187,6 +112,10 @@
 
 @media (prefers-color-scheme: dark) {
 
+    :root{
+        color: white;
+    }
+
     @keyframes cursors_ {
         0%{
             background: #ffffff;
@@ -201,7 +130,7 @@
         background-color: #ffffff;
         height: 100%;
         width: 5px;
-        left: 5px;
+        left: 0;
         z-index: 9999;
         border-radius: 5px;
     }
@@ -225,64 +154,6 @@
         background-size: cover;
     }
     
-    .menu {
-        display: flex;
-        background-color: #232327;
-        position: absolute;
-    
-        width: 100%;
-        height: 50px;
-        left: 0;
-        top: 0;
-        z-index: 1;
-    }
-    
-    .active{
-        position:absolute;
-        top: 30%;
-        /* outline-color: black;
-        outline-style: solid; */
-        outline-width: 2px;
-        text-decoration: none;
-    }
-    
-    .active{
-        color: #ffffff;
-    }
-
-    .active:hover{
-        text-decoration: underline rgb(28, 128, 241);
-        text-decoration-thickness: 2px;
-    }
-    
-    .active:link .active:visited{
-        color: #262626;
-    }
-    
-    body{
-        height: 1000px;
-    }
-    
-    #index{
-        left: 15%;
-    }
-    
-    #about{
-        left: 25%;
-    }
-    
-    #news{
-        left: 35%;
-    }
-    
-    #product{
-        left: 45%;
-    }
-    
-    #contact{
-        left: 55%;
-    }
-    
     .logo{
         width: 50px;
         height: 50px;
@@ -297,14 +168,7 @@
         background-color: #232327;
         border: none;
     }
-    
-    #login{
-        right: 8%;
-    }
-    
-    #register{
-        right: 5%;
-    }
+
     
     .user:hover{
         border-bottom: 2px solid rgb(28, 128, 241);
