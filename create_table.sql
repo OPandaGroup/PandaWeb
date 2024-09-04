@@ -1,18 +1,14 @@
 CREATE TYPE user_power AS ENUM ('admin', 'user');
 
-CREATE TABLE users (
+CREATE TABLE user (
 
     id SERIAL PRIMARY KEY,
 
     password VARCHAR(255) NOT NULL,
 
-    profile_id INTEGER,
-
-    FOREIGN KEY(profile_id) REFERENCES profiles(id)
-
 );
 
-CREATE TABLE programes (
+CREATE TABLE programe (
 
     id SERIAL PRIMARY KEY,
     
@@ -20,10 +16,13 @@ CREATE TABLE programes (
     
     link TEXT NOT NULL
 
+    profile_id INTEGER,
+
+    FOREIGN KEY(profile_id) REFERENCES profile(id)
 );
 
 
-CREATE TABLE profiles(
+CREATE TABLE profile (
 
     id SERIAL PRIMARY KEY,
 
@@ -33,7 +32,7 @@ CREATE TABLE profiles(
 
     name VARCHAR(255) NOT NULL,
 
-    programe_id INTEGER,
+    user_id INTEGER,
 
-    FOREIGN KEY(programe_id) REFERENCES programes(id)
+    FOREIGN KEY(user_id) REFERENCES user(id)
 );
