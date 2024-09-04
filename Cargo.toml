@@ -4,7 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+toml = "0.8"
 ntex = {version = "2", features = ["tokio"]}
+sqlx = {version = "0.8", features = ["derive", "macros", "runtime-tokio", "postgres"]}
 tokio = {version = "1", features = ["fs"]}
 [profile.release]
 strip = true

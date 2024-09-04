@@ -7,16 +7,17 @@ use routes::index_js;
 use routes::register_css;
 use routes::register_html;
 use routes::register_js;
+use state::Cache;
 const SERVER_ADDR: &str = "127.0.0.1:3012";
 pub mod routes;
 pub mod state;
 pub struct Application {
-    config: Config,
     cache: Cache,
 }
-impl Default for Application {
-    fn default() -> Self {
-        Self {}
+impl Application {
+    async fn init() -> Self {
+        let cache = Cache::init().await;
+        Self { cache }
     }
 }
 impl Application {
