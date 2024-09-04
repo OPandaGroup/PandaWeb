@@ -9,7 +9,11 @@ use routes::register_html;
 use routes::register_js;
 const SERVER_ADDR: &str = "127.0.0.1:3012";
 pub mod routes;
-pub struct Application {}
+pub mod state;
+pub struct Application {
+    config: Config,
+    cache: Cache,
+}
 impl Default for Application {
     fn default() -> Self {
         Self {}
