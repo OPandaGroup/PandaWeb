@@ -1,14 +1,13 @@
+use crate::state::Cache;
 use ntex::web;
-use routes::url_routes::about_css;
-use routes::url_routes::about_html;
-use routes::url_routes::index_css;
-use routes::url_routes::index_html;
-use routes::url_routes::index_js;
-use routes::url_routes::register_css;
-use routes::url_routes::register_html;
-use routes::url_routes::register_js;
-use state::Cache;
+use routes::{
+    url_routes::about_css, url_routes::about_html, url_routes::about_js, url_routes::index_css,
+    url_routes::index_html, url_routes::index_js, url_routes::register_css,
+    url_routes::register_html, url_routes::register_js,
+};
+
 const SERVER_ADDR: &str = "127.0.0.1:3012";
+pub mod db;
 pub mod routes;
 pub mod state;
 pub struct Application {
@@ -32,7 +31,7 @@ impl Application {
                 .service(register_js)
                 .service(about_html)
                 .service(about_css)
-                .service(about_html)
+                .service(about_js)
         })
         .bind(SERVER_ADDR)
         .unwrap()

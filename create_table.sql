@@ -1,8 +1,5 @@
-CREATE TYPE user_power AS ENUM ('admin', 'user');
-
 CREATE TABLE user (
-    id SERIAL PRIMARY KEY,
-    power user_power NOT NULL,
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255)
     password VARCHAR(255) NOT NULL,
