@@ -1,8 +1,8 @@
-CREATE TABLE user (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+CREATE TABLE users (
+    id UUID PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    email VARCHAR(255)
+    email VARCHAR(255) UNIQUE,
     password VARCHAR(255) NOT NULL,
     description VARCHAR(255),
-    programe_link TEXT,
+    programe_link TEXT
 );

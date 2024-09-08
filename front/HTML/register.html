@@ -1,42 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>注册</title>
-    <link rel="stylesheet" href="register.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>攀达</h1>
-            <nav>
-                <a href="index.html">首页</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section id="register">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"
+        />
+        <title>注册</tile>
+        <link rel="stylesheet" href="register.css" />
+    </head>
+    <body>
+        <header>
             <div class="container">
-                <h2>注册</h2>
-                <form id="register-form">
-                    <label for="email">邮箱:</label>
-                    <input type="email" id="email" name="email" required>
-
-                    <label for="password">密码:</label>
-                    <input type="password" id="password" name="password" required>
-
-                    <label for="confirm-password">确认密码:</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required>
-
-                    <button type="submit">注册</button>
-                </form>
-                <div id="message"></div>
+                <h1>攀达</h1>
+                <nav>
+                    <a href="index.html">首页</a>
+                </nav>
             </div>
-        </section>
-    </main>
+        </header>
 
-    <script src="register.js"></script>
-</body>
+        <main>
+            <section id="register">
+                <div class="container">
+                    <h2>注册</h2>
+                    <form id="register-form">
+                        <label for="email">邮箱:</label>
+                        <input type="email" id="email" name="email" required />
+
+                        <label for="password">密码:</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            required
+                        />
+
+                        <label for="confirm-password">确认密码:</label>
+                        <input
+                            type="password"
+                            id="confirm-password"
+                            name="confirm-password"
+                            required
+                        />
+
+                        <button type="submit">注册</button>
+                    </form>
+                    <div id="message"></div>
+                </div>
+            </section>
+        </main>
+
+        <script src="register.js"></script>
+    </body>
 </html>

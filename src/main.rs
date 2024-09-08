@@ -1,5 +1,5 @@
-use panda::Application;
+use panda::Cache;
 #[ntex::main]
 async fn main() {
-    Application::default().run().await
+    Cache::init().await.run().await
 }

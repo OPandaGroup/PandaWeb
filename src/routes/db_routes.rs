@@ -1,5 +1,5 @@
 use crate::db::User;
-use crate::state::Cache;
+use crate::Cache;
 use ntex::{http, web};
 use uuid::Uuid;
 const INSERT_USER: &str = r#"
@@ -19,7 +19,7 @@ pub async fn insert_user(
 ) -> http::Response {
     let user = user.into_inner();
     let pool = &cache.pool;
-    let id = Uuid::new_v4().as_u128() as i32;
+    let id = Uuid::new_v4().to_string();
     match sqlx::query(INSERT_USER)
         .bind(id)
         .bind(&user.name)
@@ -34,11 +34,10 @@ pub async fn insert_user(
         Err(_) => http::Response::BadRequest().finish(),
     }
 }
-
 #[web::delete("/user/{id}")]
 // I want to get the id from the path
 pub async fn delete_user(
-    id: web::types::Path<i32>,
+    id: web::types::Path<String>,
     cache: web::types::State<Cache>,
 ) -> http::Response {
     let id = id.into_inner();
@@ -51,7 +50,7 @@ pub async fn delete_user(
 
 #[web::patch("/user/{id}")]
 pub async fn update_user(
-    id: web::types::Path<i32>,
+    id: web::types::Path<String>,
     user: web::types::Json<User>,
     cache: web::types::State<Cache>,
 ) -> http::Response {
@@ -73,9 +72,10 @@ pub async fn update_user(
     }
 }
 #[web::get("/user/{id}")]
-// I want the response body to become a JSON of the user
+// This function will be used for admins.
+// I want the response body to become a JSON of the user.
 pub async fn select_user(
-    id: web::types::Path<i32>,
+    id: web::types::Path<String>,
     cache: web::types::State<Cache>,
 ) -> http::Response {
     let id = id.into_inner();

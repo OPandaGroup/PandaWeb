@@ -1,28 +1,29 @@
-use crate::state::Cache;
 use ntex::web;
 use routes::{
-    url_routes::about_css, url_routes::about_html, url_routes::about_js, url_routes::index_css,
-    url_routes::index_html, url_routes::index_js, url_routes::register_css,
-    url_routes::register_html, url_routes::register_js,
+    db_routes::{delete_user, insert_user, select_user, update_user},
+    url_routes::{
+        about_css, about_html, about_js, index_css, index_html, index_js, register_css,
+        register_html, register_js,
+    },
 };
-
 const SERVER_ADDR: &str = "127.0.0.1:3012";
+pub mod config;
 pub mod db;
 pub mod routes;
-pub mod state;
-pub struct Application {
-    cache: Cache,
+use sqlx::PgPool;
+pub struct Cache {
+    pub pool: PgPool,
 }
-impl Application {
-    async fn init() -> Self {
-        let cache = Cache::init().await;
-        Self { cache }
+impl Cache {
+    pub async fn init() -> Self {
+        Self {
+            pool: db::init_pg_pool(),
+        }
     }
-}
-impl Application {
-    pub async fn run(&mut self) {
+    pub async fn run(self) {
         web::HttpServer::new(|| {
             web::App::new()
+                .state(Cache::init())
                 .service(index_html)
                 .service(index_css)
                 .service(index_js)
@@ -32,6 +33,10 @@ impl Application {
                 .service(about_html)
                 .service(about_css)
                 .service(about_js)
+                .service(insert_user)
+                .service(update_user)
+                .service(delete_user)
+                .service(select_user)
         })
         .bind(SERVER_ADDR)
         .unwrap()
