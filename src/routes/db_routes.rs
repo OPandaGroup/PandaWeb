@@ -50,7 +50,6 @@ pub async fn insert_user(
     }
 }
 #[web::delete("/user/{id}")]
-// I want to get the id from the path
 pub async fn delete_user(
     id: web::types::Path<i64>,
     cache: web::types::State<Cache>,
