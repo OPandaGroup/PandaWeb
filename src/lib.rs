@@ -1,16 +1,20 @@
+const SERVER_ADDR: &str = "127.0.0.1:3012";
+
 use ntex::web;
 use routes::{
     db_routes::{delete_user, insert_user, select_user, update_user},
     url_routes::{about_css, about_html, about_js, index_css, index_html, index_js, register_html},
 };
-const SERVER_ADDR: &str = "127.0.0.1:3012";
+use sqlx::PgPool;
+
 pub mod config;
 pub mod db;
 pub mod routes;
-use sqlx::PgPool;
+
 pub struct Cache {
     pub pool: PgPool,
 }
+
 impl Cache {
     pub async fn init() -> Self {
         Self {

@@ -1,12 +1,3 @@
-use crate::db::User;
-use crate::Cache;
-use ntex::{http, web};
-use rsa::{Pkcs1v15Encrypt, RsaPrivateKey, RsaPublicKey};
-use std::sync::LazyLock;
-static PRI_KEY: LazyLock<RsaPrivateKey> = LazyLock::new(|| {
-    RsaPrivateKey::new(&mut rand::thread_rng(), 2048).expect("failed to generate a key")
-});
-static PUB_KEY: LazyLock<RsaPublicKey> = LazyLock::new(|| PRI_KEY.to_public_key());
 const INSERT_USER: &str = r#"
     INSERT INTO user (name, email, password, description, programe_link)
     VALUES ($1, $2, $3, $4, $5)"#;
@@ -17,6 +8,17 @@ const SELECT_USER: &str = r#"
     SELECT * FROM user WHERE id = $1"#;
 const DELETE_USER: &str = r#"
     DELETE FROM user WHERE id = $1"#;
+
+static PRI_KEY: LazyLock<RsaPrivateKey> = LazyLock::new(|| {
+    RsaPrivateKey::new(&mut rand::thread_rng(), 2048).expect("failed to generate a key")
+});
+static PUB_KEY: LazyLock<RsaPublicKey> = LazyLock::new(|| PRI_KEY.to_public_key());
+
+use crate::db::User;
+use crate::Cache;
+use ntex::{http, web};
+use rsa::{Pkcs1v15Encrypt, RsaPrivateKey, RsaPublicKey};
+use std::sync::LazyLock;
 #[web::post("/user")]
 pub async fn insert_user(
     user: web::types::Json<User>,
