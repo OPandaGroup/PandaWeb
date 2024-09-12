@@ -6,7 +6,7 @@ const PG_URL: &str = "postgres://lym:1234@localhost/panda";
 #[derive(sqlx::FromRow, Serialize, Deserialize)]
 pub struct User {
     // Emails and passwords will be encrypted using prime numbers
-    pub id: String,
+    pub id: i64,
     pub name: String,
     pub email: String,
     pub password: String,

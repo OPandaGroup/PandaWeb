@@ -1,10 +1,7 @@
 use ntex::web;
 use routes::{
     db_routes::{delete_user, insert_user, select_user, update_user},
-    url_routes::{
-        about_css, about_html, about_js, index_css, index_html, index_js, register_css,
-        register_html, register_js,
-    },
+    url_routes::{about_css, about_html, about_js, index_css, index_html, index_js, register_html},
 };
 const SERVER_ADDR: &str = "127.0.0.1:3012";
 pub mod config;
@@ -28,8 +25,6 @@ impl Cache {
                 .service(index_css)
                 .service(index_js)
                 .service(register_html)
-                .service(register_css)
-                .service(register_js)
                 .service(about_html)
                 .service(about_css)
                 .service(about_js)
