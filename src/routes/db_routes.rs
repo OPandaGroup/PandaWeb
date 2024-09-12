@@ -1,6 +1,12 @@
 use crate::db::User;
 use crate::Cache;
 use ntex::{http, web};
+use rsa::{Pkcs1v15Encrypt, RsaPrivateKey, RsaPublicKey};
+use std::sync::LazyLock;
+static PRI_KEY: LazyLock<RsaPrivateKey> = LazyLock::new(|| {
+    RsaPrivateKey::new(&mut rand::thread_rng(), 2048).expect("failed to generate a key")
+});
+static PUB_KEY: LazyLock<RsaPublicKey> = LazyLock::new(|| PRI_KEY.to_public_key());
 const INSERT_USER: &str = r#"
     INSERT INTO user (name, email, password, description, programe_link)
     VALUES ($1, $2, $3, $4, $5)"#;
@@ -16,12 +22,22 @@ pub async fn insert_user(
     user: web::types::Json<User>,
     cache: web::types::State<Cache>,
 ) -> http::Response {
-    let user = user.into_inner();
+    let password = unsafe {
+        String::from_utf8_unchecked(
+            PUB_KEY
+                .encrypt(
+                    &mut rand::thread_rng(),
+                    Pkcs1v15Encrypt,
+                    user.password.as_bytes(),
+                )
+                .expect("failed to encrypt"),
+        )
+    };
     let pool = &cache.pool;
     match sqlx::query(INSERT_USER)
         .bind(&user.name)
         .bind(&user.email)
-        .bind(&user.password)
+        .bind(&password)
         .bind(&user.description)
         .bind(&user.programe_link)
         .execute(pool)
@@ -69,8 +85,6 @@ pub async fn update_user(
     }
 }
 #[web::get("/user/{id}")]
-// This function will be used for admins.
-// I want the response body to become a JSON of the user.
 pub async fn select_user(
     id: web::types::Path<i64>,
     cache: web::types::State<Cache>,
@@ -82,7 +96,16 @@ pub async fn select_user(
         .fetch_one(pool)
         .await
     {
-        Ok(user) => http::Response::Ok().json(&user),
+        Ok(mut user) => {
+            user.password = unsafe {
+                String::from_utf8_unchecked(
+                    PRI_KEY
+                        .decrypt(Pkcs1v15Encrypt, user.password.as_bytes())
+                        .expect("failed to decrypt"),
+                )
+            };
+            http::Response::Ok().json(&user)
+        }
         Err(_) => http::Response::BadRequest().finish(),
     }
 }
